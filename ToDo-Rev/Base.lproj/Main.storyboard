@@ -71,7 +71,7 @@
         <!--New Task-->
         <scene sceneID="6nr-Io-jYl">
             <objects>
-                <viewController id="EWS-6c-npx" sceneMemberID="viewController">
+                <viewController id="EWS-6c-npx" customClass="InputViewController" customModule="ToDo_Rev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Yh-Bz-U7N"/>
                         <viewControllerLayoutGuide type="bottom" id="seg-C1-e4U"/>
@@ -79,10 +79,24 @@
                     <view key="view" contentMode="scaleToFill" id="Gfj-MN-Wuu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Him-8q-K9w">
+                                <rect key="frame" x="58" y="191" width="204" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dKr-Af-SzA">
+                                <rect key="frame" x="0.0" y="333" width="320" height="162"/>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Task" id="1NN-ka-gNN"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="name" destination="Him-8q-K9w" id="3N3-ih-OS0"/>
+                        <outlet property="picker" destination="dKr-Af-SzA" id="De7-wl-per"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HSz-VI-E8g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
