@@ -12,4 +12,5 @@ struct Task {
     var date:NSDate
     var name:String
     var priority:Int
+    var detail:String
 }

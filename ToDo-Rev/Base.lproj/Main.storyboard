@@ -53,7 +53,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="ToDo-Rev" id="KLd-Dd-GKK">
-                        <barButtonItem key="rightBarButtonItem" title="＋" id="NYg-id-rgg"/>
+                        <barButtonItem key="rightBarButtonItem" title="＋" id="NYg-id-rgg">
+                            <connections>
+                                <segue destination="EWS-6c-npx" kind="push" id="bWF-YN-oaU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -63,6 +67,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1272" y="403"/>
+        </scene>
+        <!--New Task-->
+        <scene sceneID="6nr-Io-jYl">
+            <objects>
+                <viewController id="EWS-6c-npx" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Yh-Bz-U7N"/>
+                        <viewControllerLayoutGuide type="bottom" id="seg-C1-e4U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gfj-MN-Wuu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Task" id="1NN-ka-gNN"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HSz-VI-E8g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1642" y="403"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kPT-wI-2kZ">
@@ -81,7 +105,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6G-XS-IHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="457" y="1027"/>
+            <point key="canvasLocation" x="825" y="403"/>
         </scene>
     </scenes>
 </document>

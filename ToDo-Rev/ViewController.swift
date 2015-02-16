@@ -15,10 +15,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         taskTable.delegate = self
         taskTable.dataSource = self
+        self.view.backgroundColor = UIColor.blueColor()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        let num = 3
+        update(num)
+        return num
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
@@ -38,7 +41,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-    
+    func update(num: Int) {
+        println("a")
+        taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 44 * CGFloat(num))
+    }
     
 }
 
