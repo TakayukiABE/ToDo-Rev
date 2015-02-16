@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var taskTable: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         taskTable.delegate = self
@@ -36,13 +36,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 44
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 44
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     
     func update(num: Int) {
-        println("a")
         taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 44 * CGFloat(num))
     }
     

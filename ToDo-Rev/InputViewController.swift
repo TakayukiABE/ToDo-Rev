@@ -14,6 +14,8 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBOutlet weak var picker: UIPickerView!
 
+    var input = InputModel()
+    
     override func viewDidLoad() {
         picker.delegate = self
         picker.dataSource = self
@@ -29,6 +31,19 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        var year = input.getYear()
+        switch component {
+        case 0: return "\(year)"
+        case 1: return "c"
+        default: break
+        }
+        
+        
         return "a"
+    }
+    
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        println("picker is selected.")
     }
 }
