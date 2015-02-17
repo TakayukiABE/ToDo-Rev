@@ -13,11 +13,11 @@
 		6F0B4F741A90C41A00E387F7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F0B4F731A90C41A00E387F7 /* Images.xcassets */; };
 		6F0B4F771A90C41A00E387F7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F0B4F751A90C41A00E387F7 /* LaunchScreen.xib */; };
 		6F0B4F831A90C41A00E387F7 /* ToDo_RevTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B4F821A90C41A00E387F7 /* ToDo_RevTests.swift */; };
-		6F0B4F8D1A90D74900E387F7 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B4F8C1A90D74900E387F7 /* Task.swift */; };
 		6F92D29E1A92D4010056A00E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F92D29D1A92D4010056A00E /* Realm.framework */; };
 		6F92D2A01A92D4750056A00E /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F92D29F1A92D4750056A00E /* libc++.dylib */; };
 		6F92D2A21A92D5400056A00E /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F92D2A11A92D5400056A00E /* RLMSupport.swift */; };
 		6F92D2A41A92D5BD0056A00E /* TaskObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F92D2A31A92D5BD0056A00E /* TaskObject.swift */; };
+		6F92D2A61A92DBA30056A00E /* TaskTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F92D2A51A92DBA30056A00E /* TaskTableModel.swift */; };
 		6FC497341A917EA300E0BB90 /* InputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC497331A917EA300E0BB90 /* InputModel.swift */; };
 		6FDCDB5A1A916CC1007BE754 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDCDB591A916CC1007BE754 /* InputViewController.swift */; };
 /* End PBXBuildFile section */
@@ -43,11 +43,11 @@
 		6F0B4F7C1A90C41A00E387F7 /* ToDo-RevTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ToDo-RevTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F0B4F811A90C41A00E387F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F0B4F821A90C41A00E387F7 /* ToDo_RevTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo_RevTests.swift; sourceTree = "<group>"; };
-		6F0B4F8C1A90D74900E387F7 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		6F92D29D1A92D4010056A00E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		6F92D29F1A92D4750056A00E /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		6F92D2A11A92D5400056A00E /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		6F92D2A31A92D5BD0056A00E /* TaskObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskObject.swift; sourceTree = "<group>"; };
+		6F92D2A51A92DBA30056A00E /* TaskTableModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableModel.swift; sourceTree = "<group>"; };
 		6FC497331A917EA300E0BB90 /* InputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputModel.swift; sourceTree = "<group>"; };
 		6FDCDB591A916CC1007BE754 /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,7 +98,7 @@
 			children = (
 				6F0B4F6C1A90C41A00E387F7 /* AppDelegate.swift */,
 				6F0B4F6E1A90C41A00E387F7 /* ViewController.swift */,
-				6F0B4F8C1A90D74900E387F7 /* Task.swift */,
+				6F92D2A51A92DBA30056A00E /* TaskTableModel.swift */,
 				6F92D2A31A92D5BD0056A00E /* TaskObject.swift */,
 				6F0B4F701A90C41A00E387F7 /* Main.storyboard */,
 				6FDCDB591A916CC1007BE754 /* InputViewController.swift */,
@@ -237,8 +237,8 @@
 			files = (
 				6F0B4F6F1A90C41A00E387F7 /* ViewController.swift in Sources */,
 				6F92D2A21A92D5400056A00E /* RLMSupport.swift in Sources */,
+				6F92D2A61A92DBA30056A00E /* TaskTableModel.swift in Sources */,
 				6FC497341A917EA300E0BB90 /* InputModel.swift in Sources */,
-				6F0B4F8D1A90D74900E387F7 /* Task.swift in Sources */,
 				6F92D2A41A92D5BD0056A00E /* TaskObject.swift in Sources */,
 				6F0B4F6D1A90C41A00E387F7 /* AppDelegate.swift in Sources */,
 				6FDCDB5A1A916CC1007BE754 /* InputViewController.swift in Sources */,

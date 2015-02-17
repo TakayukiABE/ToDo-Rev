@@ -15,6 +15,7 @@ class TaskObject: RLMObject {
     dynamic var name:String = ""
     dynamic var priority:Int = 0
     dynamic var detail:String = ""
+    dynamic var displayDate:String = ""
     
     
 }

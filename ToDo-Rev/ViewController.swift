@@ -11,19 +11,24 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var taskTable: UITableView!
     
-    var num = 0
+    var numOfTask = 0
+    var taskModel = TaskTableModel()
+    var tasks = [TaskObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         taskTable.delegate = self
         taskTable.dataSource = self
         self.view.backgroundColor = UIColor.blueColor()
+        taskModel.getTaskList()
+        tasks = taskModel.sortTasks()
+        numOfTask = taskModel.getNumberOfTasks()
+        println("number of tasks = \(numOfTask)")
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        num = 3
    //     update(num)
-        return num
+        return numOfTask
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
@@ -31,8 +36,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var date = cell.viewWithTag(1) as UILabel
         var name = cell.viewWithTag(2) as UILabel
         
+        name.text = tasks[indexPath.row].name
         
-        name.text = "b"
+        
+
         date.text = "a"
         
         return cell
@@ -55,7 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 44 * CGFloat(num))
 //    }
     override func viewDidLayoutSubviews() {
-        taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 44 * CGFloat(num))
+        taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 44 * CGFloat(numOfTask))
     }
     
 }

@@ -132,6 +132,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         task.detail = detail.text
         task.priority = picker.selectedRowInComponent(3)
         task.date = "\(selectedYear)\(selectedMonth)\(selectedDate)".toInt()!
+        task.displayDate = "\(selectedYear)/\(selectedMonth)/\(selectedDate)(\(input.getDay(selectedYear, month: selectedMonth, date: selectedDate)))"
         realm.beginWriteTransaction()
         realm.addObject(task)
         realm.commitWriteTransaction()
