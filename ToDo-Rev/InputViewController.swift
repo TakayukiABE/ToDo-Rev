@@ -19,23 +19,31 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     override func viewDidLoad() {
         picker.delegate = self
         picker.dataSource = self
+        var month = input.getMonth()
+        picker.selectRow(month-1, inComponent: 1, animated: false)
     }
     
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 1000
+        switch component {
+        case 0: return 1000
+        case 1: return 12
+        case 2: return 30
+        default: return 1
+        }
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 2
+        return 3
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         var year = input.getYear()
         var month = input.getMonth()
         switch component {
-        case 0: return "\(year+row)"
-        case 1: return "\((month+row-1)%12+1)"
+        case 0: return "\(year+row)年"
+        case 1: return "\(row+1)月"
+        case 2: return "day日(曜)"
         default: break
         }
         
