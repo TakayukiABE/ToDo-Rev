@@ -22,7 +22,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         num = 3
-        update(num)
+   //     update(num)
         return num
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -51,7 +51,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-    func update(num: Int) {
+//    func update(num: Int) {
+//        taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 44 * CGFloat(num))
+//    }
+    override func viewDidLayoutSubviews() {
         taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 44 * CGFloat(num))
     }
     

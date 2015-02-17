@@ -97,7 +97,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         switch component {
         case 0: return 85
-        case 1: return 50
+        case 1: return 60
         case 2: return 95
         case 3: return 40
         default: return 0
