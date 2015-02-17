@@ -41,7 +41,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         selectedMonth = month
         
         detail.layer.borderWidth = 0.3
-        detail.layer.cornerRadius = 15
+        detail.layer.cornerRadius = 0
         name.delegate = self
         detail.delegate = self
     }
@@ -49,7 +49,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     override func viewDidAppear(animated: Bool) {
         picker.selectRow(month-1, inComponent: 1, animated: true)
         println("selectedMonth = \(selectedMonth)")
-        picker.selectRow(4, inComponent: 3, animated: true)
+        picker.selectRow(1, inComponent: 3, animated: true)
         println("selectedDate = \(selectedDate)")
         println(date)
         picker.selectRow(date-1, inComponent: 2, animated: true)
@@ -74,7 +74,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             }
         default: return 1
             }
-        case 3: return 10
+        case 3: return 3
         default: return 1
         }
     }
@@ -98,7 +98,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         
         
-        return "a"
+        return "error"
     }
     
     func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
@@ -158,7 +158,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         if text == "\n" {
         textView.resignFirstResponder()
         }
-        return false
+        return true
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {

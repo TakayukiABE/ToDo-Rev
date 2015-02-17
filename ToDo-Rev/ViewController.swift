@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var numOfTask = 0
     var taskModel = TaskTableModel()
     var taskName = String()
-    
+    var sorting = 0
     override func viewDidLoad() {
         
 
@@ -45,10 +45,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var date = cell.viewWithTag(1) as UILabel
         var name = cell.viewWithTag(2) as UILabel
         var detail = cell.viewWithTag(3) as UILabel
+        var priority = cell.viewWithTag(4) as UILabel
         detail.sizeToFit()
         detail.numberOfLines = 0
         detail.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        var tasks = taskModel.sortTasks()
+        
+        var tasks:[TaskObject]!
+        switch sorting {
+            case 0: tasks = taskModel.sortTasks()
+            case 1: tasks = taskModel.sortTasksPriority()
+            default: println("error")
+        }
         name.text = tasks[indexPath.row].name
         date.text = tasks[indexPath.row].displayDate
         detail.text = tasks[indexPath.row].detail
@@ -57,6 +64,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         println(tasks[indexPath.row].completion)
         if tasks[indexPath.row].completion == true {
             cell.backgroundColor = UIColor(red: 0.2, green: 0.3, blue: 0.7, alpha: 0.4)
+        }
+        switch tasks[indexPath.row].priority {
+        case 1: priority.text = "☆"
+        case 2: priority.text = "☆☆"
+        case 3: priority.text = "☆☆☆"
+        default: println("error at priority")
         }
         return cell
     }
@@ -101,5 +114,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
+    @IBAction func didChangeSegment(sender: UISegmentedControl) {
+            
+        switch(sender.selectedSegmentIndex){
+            case 0: sorting = 0
+            case 1: sorting = 1
+            default: println("Error")
+            }
+        taskTable.reloadData()
+    }
+
 }
 

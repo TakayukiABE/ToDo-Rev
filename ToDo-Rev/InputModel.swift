@@ -35,7 +35,7 @@ class InputModel: NSObject {
         var searchDate:NSDate = cal.dateWithEra(1, year: year, month: month, day: date, hour: 9, minute: 0, second: 0, nanosecond: 0)!
         var component = cal.components((NSCalendarUnit.CalendarUnitWeekday), fromDate: searchDate)
         switch component.weekday {
-        case 1: return "土"
+        case 1: return "日"
         case 2: return "月"
         case 3: return "火"
         case 4: return "水"

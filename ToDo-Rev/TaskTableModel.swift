@@ -40,6 +40,26 @@ class TaskTableModel: NSObject {
         return task
     }
     
+    func sortTasksPriority() -> [TaskObject] {
+        var task = [TaskObject]()
+        for k in TaskObject.allObjects() {
+            task.append(k as TaskObject)
+        }
+        task.sort({
+            $0.priority > $1.priority
+        })
+        var l = 0
+        for k in task {
+            realm.beginWriteTransaction()
+            k.number = l
+            realm.commitWriteTransaction()
+            l++
+            println("\(k.name), \(k.number)")
+        }
+        return task
+    }
+    
+    
     func getNumberOfTasks() -> Int {
         var j = 0
         var task = [TaskObject]()
