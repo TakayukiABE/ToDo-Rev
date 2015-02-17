@@ -18,8 +18,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var sorting = 0
     override func viewDidLoad() {
         
-
-
+//        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        
         super.viewDidLoad()
         taskTable.delegate = self
         taskTable.dataSource = self
@@ -27,7 +28,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         taskModel.getTaskList()
         println("number of tasks = \(numOfTask)")
         
-        
+        taskTable.alpha = 0.9
         
     }
     
