@@ -80,22 +80,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Him-8q-K9w">
-                                <rect key="frame" x="58" y="191" width="204" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dKr-Af-SzA">
                                 <rect key="frame" x="0.0" y="333" width="320" height="162"/>
                             </pickerView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="smn-Ck-UXv">
+                                <rect key="frame" x="40" y="144" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Him-8q-K9w">
+                                <rect key="frame" x="58" y="72" width="204" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Task" id="1NN-ka-gNN"/>
+                    <navigationItem key="navigationItem" title="New Task" id="1NN-ka-gNN">
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="WLk-9Y-UCY">
+                            <connections>
+                                <action selector="didTapSaveButton:" destination="EWS-6c-npx" id="iH1-Hm-7ty"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="detail" destination="smn-Ck-UXv" id="YVP-ff-URr"/>
                         <outlet property="name" destination="Him-8q-K9w" id="3N3-ih-OS0"/>
                         <outlet property="picker" destination="dKr-Af-SzA" id="De7-wl-per"/>
+                        <outlet property="saveButton" destination="WLk-9Y-UCY" id="N6q-w7-414"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HSz-VI-E8g" userLabel="First Responder" sceneMemberID="firstResponder"/>

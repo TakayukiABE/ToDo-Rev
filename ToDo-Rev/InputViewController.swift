@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Realm
 
 class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var name: UITextField!
-    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var detail: UITextView!
     @IBOutlet weak var picker: UIPickerView!
 
     var input = InputModel()
@@ -25,6 +27,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var year = 0
     var date = 0
     
+    let realm = RLMRealm.defaultRealm()
     
     override func viewDidLoad() {
         picker.delegate = self
@@ -45,7 +48,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         picker.selectRow(4, inComponent: 3, animated: true)
         println("selectedDate = \(selectedDate)")
         println(date)
-        picker.selectRow(10, inComponent: 2, animated: true)
+        picker.selectRow(date-1, inComponent: 2, animated: true)
     }
     
     
@@ -119,4 +122,31 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         println("picker is selected.")
     }
+    
+    
+    
+
+    @IBAction func didTapSaveButton(sender: AnyObject) {
+        let task = TaskObject()
+        task.name = name.text
+        task.detail = detail.text
+        task.priority = picker.selectedRowInComponent(3)
+        task.date = "\(selectedYear)\(selectedMonth)\(selectedDate)".toInt()!
+        realm.beginWriteTransaction()
+        realm.addObject(task)
+        realm.commitWriteTransaction()
+        
+        for taskName in TaskObject.allObjects() {
+            println("\((taskName as TaskObject).name)")
+        }
+        
+        name.text = ""
+        detail.text = ""
+    }
+
+    
+    
+    
+    
+    
 }
