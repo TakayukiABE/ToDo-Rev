@@ -11,8 +11,9 @@ import Realm
 
 class TaskTableModel: NSObject {
    
+    let realm = RLMRealm.defaultRealm()
     var tasks:[TaskObject] = [TaskObject]()
-    
+    var num = 0
     func getTaskList() {
         for num in TaskObject.allObjects() {
             tasks.append(num as TaskObject)
@@ -20,17 +21,39 @@ class TaskTableModel: NSObject {
     }
     
     func sortTasks() -> [TaskObject] {
-        tasks.sort({
+        var task = [TaskObject]()
+        for k in TaskObject.allObjects() {
+            task.append(k as TaskObject)
+        }
+        task.sort({
             $0.date > $1.date
         })
-        
-        return tasks
+        return task
     }
     
     func getNumberOfTasks() -> Int {
-        var num = 0
-        for ; num < tasks.count; num++ {
+        var j = 0
+        for ; j < tasks.count; j++ {
+            println("セル数\(j)")
         }
-        return num
+        num = j
+        return j
+    }
+    
+    func deleteTask(row: Int, taskName:String) {
+
+        tasks.removeAtIndex(row)
+        
+        
+        realm.beginWriteTransaction()
+        realm.deleteObjects(TaskObject.objectsWhere("name = '\(taskName)'"))
+        
+        
+        
+        realm.commitWriteTransaction()
+        
+        
+        
+        
     }
 }
