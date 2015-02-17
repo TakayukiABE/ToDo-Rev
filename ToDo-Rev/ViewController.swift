@@ -67,12 +67,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-//    func update(num: Int) {
-//        taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 44 * CGFloat(num))
-//    }
-//    override func viewDidLayoutSubviews() {
-//        taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 44 * CGFloat(numOfTask))
-//    }
+    func update(num: Int) {
+        taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 83 * CGFloat(num))
+    }
+    override func viewDidLayoutSubviews() {
+        taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 83 * CGFloat(numOfTask))
+    }
     override func viewDidAppear(animated: Bool) {
         taskTable.reloadData()
     }
@@ -80,6 +80,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if(editingStyle == UITableViewCellEditingStyle.Delete){
             taskModel.deleteTask(indexPath.row)
+            numOfTask--
+            update(numOfTask)
             taskTable.reloadData()
         }
     }

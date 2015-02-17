@@ -9,7 +9,7 @@
 import UIKit
 import Realm
 
-class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -39,6 +39,9 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         selectedDate = date
         selectedYear = year
         selectedMonth = month
+        
+        name.delegate = self
+        detail.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -129,7 +132,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         let task = TaskObject()
         task.name = name.text
         task.detail = detail.text
-        task.priority = picker.selectedRowInComponent(3)
+        task.priority = picker.selectedRowInComponent(3) + 1
         task.date = "\(selectedYear)\(selectedMonth)\(selectedDate)".toInt()!
         task.displayDate = "\(selectedYear)/\(selectedMonth)/\(selectedDate)(\(input.getDay(selectedYear, month: selectedMonth, date: selectedDate)))"
         realm.beginWriteTransaction()
@@ -146,5 +149,16 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func textFieldShouldReturn(textField:UITextField) {
         textField.resignFirstResponder()
+    }
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+        textView.resignFirstResponder()
+        }
+        return false
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.name.resignFirstResponder()
+        self.detail.resignFirstResponder()
     }
 }
