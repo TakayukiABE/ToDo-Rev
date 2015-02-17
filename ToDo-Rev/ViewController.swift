@@ -41,9 +41,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         var date = cell.viewWithTag(1) as UILabel
         var name = cell.viewWithTag(2) as UILabel
+        var detail = cell.viewWithTag(3) as UILabel
+        detail.sizeToFit()
+        detail.numberOfLines = 0
+        detail.lineBreakMode = NSLineBreakMode.ByWordWrapping
         var tasks = taskModel.sortTasks()
         name.text = tasks[indexPath.row].name
         date.text = tasks[indexPath.row].displayDate
+        detail.text = tasks[indexPath.row].detail
+        println("row:\(indexPath.row) priority:\(tasks[indexPath.row].priority)")
         
         return cell
     }

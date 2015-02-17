@@ -144,4 +144,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         detail.text = ""
     }
     
+    func textFieldShouldReturn(textField:UITextField) {
+        textField.resignFirstResponder()
+    }
 }

@@ -42,7 +42,11 @@ class TaskTableModel: NSObject {
     
     func getNumberOfTasks() -> Int {
         var j = 0
-        for ; j < tasks.count; j++ {
+        var task = [TaskObject]()
+        for m in TaskObject.allObjects() {
+            task.append(m as TaskObject)
+        }
+        for ; j < task.count; j++ {
             println("セル数\(j)")
         }
         num = j
@@ -51,13 +55,16 @@ class TaskTableModel: NSObject {
     
     func deleteTask(row: Int) {
 
-        
+        var task = [TaskObject]()
+        for m in TaskObject.allObjects() {
+            task.append(m as TaskObject)
+        }
 
         realm.beginWriteTransaction()
         realm.deleteObjects(TaskObject.objectsWhere("number = %d", row))
         realm.commitWriteTransaction()
 
-                tasks.removeAtIndex(row)
+        task.removeAtIndex(row)
         
         
         

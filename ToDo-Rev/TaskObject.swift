@@ -17,6 +17,7 @@ class TaskObject: RLMObject {
     dynamic var detail:String = ""
     dynamic var displayDate:String = ""
     dynamic var number:Int = 0
+    dynamic var category:String = ""
     dynamic var completion:Bool = false
     
 }
