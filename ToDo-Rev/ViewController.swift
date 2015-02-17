@@ -39,6 +39,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
         
+        cell.backgroundColor = UIColor.whiteColor()
+        cell.alpha = 1
+        
         var date = cell.viewWithTag(1) as UILabel
         var name = cell.viewWithTag(2) as UILabel
         var detail = cell.viewWithTag(3) as UILabel
@@ -51,6 +54,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         detail.text = tasks[indexPath.row].detail
         println("row:\(indexPath.row) priority:\(tasks[indexPath.row].priority)")
         cell.selectionStyle = UITableViewCellSelectionStyle.None
+        println(tasks[indexPath.row].completion)
+        if tasks[indexPath.row].completion == true {
+            cell.backgroundColor = UIColor(red: 0.2, green: 0.3, blue: 0.7, alpha: 0.4)
+        }
         return cell
     }
     
@@ -86,6 +93,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        taskModel.complete(indexPath.row)
+        println("tap on \(indexPath.row)")
+        
+        taskTable.reloadData()
+    }
     
     
 }
