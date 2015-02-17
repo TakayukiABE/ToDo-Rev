@@ -112,6 +112,8 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             picker.reloadComponent(2)
         case 1: selectedMonth = row + 1
             picker.reloadComponent(2)
+        case 2: selectedDate = row + 1
+        case 3: selectedPriority = row + 1
         default : break
         }
         
