@@ -28,6 +28,15 @@ class TaskTableModel: NSObject {
         task.sort({
             $0.date > $1.date
         })
+        var l = 0
+        for k in task {
+            realm.beginWriteTransaction()
+            k.number = l
+            realm.commitWriteTransaction()
+            l++
+            println("\(k.name), \(k.number)")
+        }
+        
         return task
     }
     
@@ -40,18 +49,15 @@ class TaskTableModel: NSObject {
         return j
     }
     
-    func deleteTask(row: Int, taskName:String) {
+    func deleteTask(row: Int) {
 
-        tasks.removeAtIndex(row)
         
-        
+
         realm.beginWriteTransaction()
-        realm.deleteObjects(TaskObject.objectsWhere("name = '\(taskName)'"))
-        
-        
-        
+        realm.deleteObjects(TaskObject.objectsWhere("number = %d", row))
         realm.commitWriteTransaction()
-        
+
+                tasks.removeAtIndex(row)
         
         
         

@@ -40,10 +40,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var name = cell.viewWithTag(2) as UILabel
         var tasks = taskModel.sortTasks()
         name.text = tasks[indexPath.row].name
-        taskName = name.text!
-        
-
-        date.text = "a"
+        date.text = tasks[indexPath.row].displayDate
         
         return cell
     }
@@ -73,7 +70,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if(editingStyle == UITableViewCellEditingStyle.Delete){
-            taskModel.deleteTask(indexPath.row, taskName: taskName)
+            taskModel.deleteTask(indexPath.row)
             
             
             
