@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var taskTable: UITableView!
     
+    var num = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         taskTable.delegate = self
@@ -19,7 +21,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let num = 3
+        num = 3
         update(num)
         return num
     }

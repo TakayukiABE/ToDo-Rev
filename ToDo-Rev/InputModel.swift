@@ -16,12 +16,16 @@ class InputModel: NSObject {
     
     override init() {
         var today = NSDate()
-        comp = cal.components((NSCalendarUnit.CalendarUnitWeekday|NSCalendarUnit.CalendarUnitDay|NSCalendarUnit.CalendarUnitYear), fromDate: today)
+        comp = cal.components((NSCalendarUnit.CalendarUnitWeekday|NSCalendarUnit.CalendarUnitDay|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitYear), fromDate: today)
         println(comp.year)
     }
     
     func getYear() -> Int {
         return comp.year
+    }
+    
+    func getMonth() -> Int {
+        return comp.month
     }
     
 }

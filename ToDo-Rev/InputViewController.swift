@@ -23,7 +23,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 100000
+        return 1000
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -32,9 +32,10 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         var year = input.getYear()
+        var month = input.getMonth()
         switch component {
-        case 0: return "\(year)"
-        case 1: return "c"
+        case 0: return "\(year+row)"
+        case 1: return "\((month+row-1)%12+1)"
         default: break
         }
         
