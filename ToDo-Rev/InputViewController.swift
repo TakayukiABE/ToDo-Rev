@@ -23,6 +23,8 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         picker.delegate = self
         picker.dataSource = self
         var month = input.getMonth()
+        var year = input.getYear()
+        selectedYear = year
         picker.selectRow(month-1, inComponent: 1, animated: false)
         selectedMonth = month
         println("selectedMonth = \(selectedMonth)")
@@ -37,7 +39,15 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         case 2: switch selectedMonth {
         case 1, 3, 5, 7, 8, 10, 12: return 31
         case 4, 6, 9, 11: return 30
-        case 2: return 28
+        case 2: if (selectedYear % 4 == 0) && (selectedYear % 100 == 0) {
+                    if selectedYear % 400 == 0 {
+                        return 29
+                    }else {return 28}
+        }else if selectedYear % 4 == 0 && selectedYear % 100 != 0 {
+            return 29
+        }else {
+            return 28
+            }
         default: return 1
             }
         case 3: return 10
@@ -79,6 +89,8 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         println("\(row) \(component)")
         switch component {
+        case 0: selectedYear = row + 2015
+            picker.reloadComponent(2)
         case 1: selectedMonth = row + 1
             picker.reloadComponent(2)
         default : break
