@@ -16,11 +16,16 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 
     var input = InputModel()
     
+    var selectedYear = 0
+    var selectedMonth = 0
+    
     override func viewDidLoad() {
         picker.delegate = self
         picker.dataSource = self
         var month = input.getMonth()
         picker.selectRow(month-1, inComponent: 1, animated: false)
+        selectedMonth = month
+        println("selectedMonth = \(selectedMonth)")
         picker.selectRow(4, inComponent: 3, animated: false)
     }
     
@@ -29,7 +34,12 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         switch component {
         case 0: return 1000
         case 1: return 12
-        case 2: return 30
+        case 2: switch selectedMonth {
+        case 1, 3, 5, 7, 8, 10, 12: return 31
+        case 4, 6, 9, 11: return 30
+        case 2: return 28
+        default: return 1
+            }
         case 3: return 10
         default: return 1
         }
@@ -41,11 +51,12 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         var year = input.getYear()
-        var month = input.getMonth()
+       // var date = input.getDate()
+        var day = String()
         switch component {
         case 0: return "\(year+row)年"
         case 1: return "\(row+1)月"
-        case 2: return "33日(曜)"
+        case 2: return "\(row+1)日(曜)"
         case 3: return "\(row+1)"
         default: break
         }
@@ -66,6 +77,13 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        println("\(row) \(component)")
+        switch component {
+        case 1: selectedMonth = row + 1
+            picker.reloadComponent(2)
+        default : break
+        }
+        
         println("picker is selected.")
     }
 }
