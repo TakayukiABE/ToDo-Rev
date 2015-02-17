@@ -17,7 +17,6 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var picker: UIPickerView!
 
     var input = InputModel()
-    
     var selectedYear = 0
     var selectedMonth = 0
     var selectedDate = 0
@@ -144,10 +143,5 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         name.text = ""
         detail.text = ""
     }
-
-    
-    
-    
-    
     
 }

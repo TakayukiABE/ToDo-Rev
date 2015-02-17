@@ -26,6 +26,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.view.backgroundColor = UIColor.blueColor()
         taskModel.getTaskList()
         println("number of tasks = \(numOfTask)")
+        
+        
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,19 +67,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //    override func viewDidLayoutSubviews() {
 //        taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 44 * CGFloat(numOfTask))
 //    }
-//    override func viewDidAppear(animated: Bool) {
-//        taskTable.reloadData()
-//    }
+    override func viewDidAppear(animated: Bool) {
+        taskTable.reloadData()
+    }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if(editingStyle == UITableViewCellEditingStyle.Delete){
             taskModel.deleteTask(indexPath.row)
-            
-            
-            
             taskTable.reloadData()
         }
     }
+    
     
 }
 
