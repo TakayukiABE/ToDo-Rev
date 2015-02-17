@@ -50,7 +50,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         date.text = tasks[indexPath.row].displayDate
         detail.text = tasks[indexPath.row].detail
         println("row:\(indexPath.row) priority:\(tasks[indexPath.row].priority)")
-        
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         return cell
     }
     
@@ -85,6 +85,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             taskTable.reloadData()
         }
     }
+    
     
     
 }

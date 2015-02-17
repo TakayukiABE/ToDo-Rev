@@ -40,6 +40,8 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         selectedYear = year
         selectedMonth = month
         
+        detail.layer.borderWidth = 0.3
+        detail.layer.cornerRadius = 15
         name.delegate = self
         detail.delegate = self
     }
@@ -129,22 +131,24 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
 
     @IBAction func didTapSaveButton(sender: AnyObject) {
-        let task = TaskObject()
-        task.name = name.text
-        task.detail = detail.text
-        task.priority = picker.selectedRowInComponent(3) + 1
-        task.date = "\(selectedYear)\(selectedMonth)\(selectedDate)".toInt()!
-        task.displayDate = "\(selectedYear)/\(selectedMonth)/\(selectedDate)(\(input.getDay(selectedYear, month: selectedMonth, date: selectedDate)))"
-        realm.beginWriteTransaction()
-        realm.addObject(task)
-        realm.commitWriteTransaction()
         
-        for taskName in TaskObject.allObjects() {
-            println("\((taskName as TaskObject).name)")
+        if name.text != "" {
+            let task = TaskObject()
+            task.name = name.text
+            task.detail = detail.text
+            task.priority = picker.selectedRowInComponent(3) + 1
+            task.date = "\(selectedYear)\(selectedMonth)\(selectedDate)".toInt()!
+            task.displayDate = "\(selectedYear)/\(selectedMonth)/\(selectedDate)(\(input.getDay(selectedYear, month: selectedMonth, date: selectedDate)))"
+            realm.beginWriteTransaction()
+            realm.addObject(task)
+            realm.commitWriteTransaction()
+            for taskName in TaskObject.allObjects() {
+                println("\((taskName as TaskObject).name)")
+            }
+            
+            name.text = ""
+            detail.text = ""
         }
-        
-        name.text = ""
-        detail.text = ""
     }
     
     func textFieldShouldReturn(textField:UITextField) {
