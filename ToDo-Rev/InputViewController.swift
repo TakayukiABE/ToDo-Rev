@@ -18,17 +18,34 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     var selectedYear = 0
     var selectedMonth = 0
+    var selectedDate = 0
+    var selectedPriority = 5
+
+    var month = 0
+    var year = 0
+    var date = 0
+    
     
     override func viewDidLoad() {
         picker.delegate = self
         picker.dataSource = self
-        var month = input.getMonth()
-        var year = input.getYear()
+        
+        month = input.getMonth()
+        year = input.getYear()
+        date = input.getDate()
+        
+        selectedDate = date
         selectedYear = year
-        picker.selectRow(month-1, inComponent: 1, animated: false)
         selectedMonth = month
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        picker.selectRow(month-1, inComponent: 1, animated: true)
         println("selectedMonth = \(selectedMonth)")
-        picker.selectRow(4, inComponent: 3, animated: false)
+        picker.selectRow(4, inComponent: 3, animated: true)
+        println("selectedDate = \(selectedDate)")
+        println(date)
+        picker.selectRow(10, inComponent: 2, animated: true)
     }
     
     
@@ -66,7 +83,9 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         switch component {
         case 0: return "\(year+row)年"
         case 1: return "\(row+1)月"
-        case 2: return "\(row+1)日(曜)"
+        case 2: var day = input.getDay(selectedYear, month: selectedMonth, date: row+1)
+            
+            return "\(row+1)日(\(day))"
         case 3: return "\(row+1)"
         default: break
         }
@@ -89,7 +108,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         println("\(row) \(component)")
         switch component {
-        case 0: selectedYear = row + 2015
+        case 0: selectedYear = row + year
             picker.reloadComponent(2)
         case 1: selectedMonth = row + 1
             picker.reloadComponent(2)
