@@ -39,7 +39,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
-        
+//        cell.accessoryType = UITableViewCellAccessoryType.None
         cell.backgroundColor = UIColor.whiteColor()
         cell.alpha = 1
         
@@ -64,7 +64,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         println(tasks[indexPath.row].completion)
         if tasks[indexPath.row].completion == true {
-            cell.backgroundColor = UIColor(red: 0.2, green: 0.3, blue: 0.7, alpha: 0.4)
+//            cell.backgroundColor = UIColor(red: 0.2, green: 0.3, blue: 0.7, alpha: 0.4)
+           //         cell.accessoryType = UITableViewCellAccessoryType.Checkmark
         }
         switch tasks[indexPath.row].priority {
         case 1: priority.text = "☆"
@@ -89,10 +90,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func update(num: Int) {
-        taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 83 * CGFloat(num))
+        if num <= 6 {
+            taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 83 * CGFloat(num))
+        }else {
+            taskTable.frame = CGRectMake(0, 64, self.view.frame.width, self.view.frame.height - 64)
+        }
     }
     override func viewDidLayoutSubviews() {
-        taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 83 * CGFloat(numOfTask))
+        if numOfTask <= 6 {
+            taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 83 * CGFloat(numOfTask))
+        }else {
+            taskTable.frame = CGRectMake(0, 64, self.view.frame.width, self.view.frame.height - 64)
+        }
     }
     override func viewDidAppear(animated: Bool) {
         taskTable.reloadData()

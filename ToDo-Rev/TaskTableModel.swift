@@ -94,7 +94,7 @@ class TaskTableModel: NSObject {
             realm.beginWriteTransaction()
             if (i as TaskObject).completion == false {
                 (i as TaskObject).completion = true
-            }else {
+            }else if (i as TaskObject).completion == true {
                 (i as TaskObject).completion = false
             }
             println("\((i as TaskObject).completion)")
