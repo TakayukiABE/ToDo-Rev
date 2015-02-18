@@ -14,6 +14,26 @@ class TaskTableModel: NSObject {
     let realm = RLMRealm.defaultRealm()
     var tasks:[TaskObject] = [TaskObject]()
     var num = 0
+    
+    func getToday() -> String {
+        var comp = NSDateComponents()
+        var cal = NSCalendar.currentCalendar()
+        var today = NSDate()
+        var day = String()
+        comp = cal.components((NSCalendarUnit.CalendarUnitWeekday|NSCalendarUnit.CalendarUnitDay|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitYear|NSCalendarUnit.CalendarUnitHour|NSCalendarUnit.CalendarUnitMinute), fromDate: today)
+        switch comp.weekday {
+        case 1: day = "日"
+        case 2: day =  "月"
+        case 3: day =  "火"
+        case 4: day =  "水"
+        case 5: day =  "木"
+        case 6: day = "金"
+        case 7: day =  "土"
+        default: day =  "error"
+        }
+        return "今日：\(comp.year)/\(comp.month)/\(comp.day)(\(day))"
+    }
+    
     func getTaskList() {
         for num in TaskObject.allObjects() {
             tasks.append(num as TaskObject)
@@ -30,6 +50,10 @@ class TaskTableModel: NSObject {
         })
         task.sort({
             $0.date < $1.date
+        })
+        
+        task.sort({
+            Int($0.completion) < Int($1.completion)
         })
         var l = 0
         for k in task {
@@ -53,6 +77,9 @@ class TaskTableModel: NSObject {
         })
         task.sort({
             $0.priority > $1.priority
+        })
+        task.sort({
+            Int($0.completion) < Int($1.completion)
         })
         var l = 0
         for k in task {

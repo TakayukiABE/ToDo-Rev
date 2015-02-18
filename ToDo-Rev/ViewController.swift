@@ -12,6 +12,8 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, EditDelegate {
     @IBOutlet weak var taskTable: UITableView!
     
+    @IBOutlet weak var todayLabel: UILabel!
+
     var numOfTask = 0
     var taskModel = TaskTableModel()
     var taskName = String()
@@ -28,7 +30,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.view.backgroundColor = UIColor.blueColor()
         taskModel.getTaskList()
         println("number of tasks = \(numOfTask)")
-        
+        todayLabel.text = taskModel.getToday()
+        todayLabel.backgroundColor = UIColor.whiteColor()
         taskTable.alpha = 0.9
     }
     
@@ -50,6 +53,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         detail.sizeToFit()
         detail.numberOfLines = 0
         detail.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        name.textColor = UIColor.blackColor()
+        date.textColor = UIColor.blackColor()
+        priority.textColor = UIColor.blackColor()
         
         var tasks:[TaskObject]!
         switch sorting {
@@ -77,7 +83,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 documentAttributes: nil,
                 error: nil)
             name.font = UIFont(name: "Helvetica Neue", size: 20)
-            date.attributedText = NSAttributedString(data: "<s>\(tasks[indexPath.row].displayDate)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s>".dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+            date.attributedText = NSAttributedString(data: "<s>\(tasks[indexPath.row].displayDate)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s>".dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
                 documentAttributes: nil,
                 error: nil)
             date.font = UIFont(name: "System", size: 17)
@@ -88,6 +94,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             default: println("error at priority")
             }
             detail.textColor = UIColor.grayColor()
+            name.textColor = UIColor.grayColor()
+            date.textColor = UIColor.grayColor()
+            priority.textColor = UIColor.grayColor()
         }
         return cell
     }
@@ -107,16 +116,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func update(num: Int) {
         if num <= 6 {
-            taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 83 * CGFloat(num))
+            taskTable.frame = CGRectMake(0, 94, self.view.frame.width, 83 * CGFloat(num))
         }else {
-            taskTable.frame = CGRectMake(0, 64, self.view.frame.width, self.view.frame.height - 64)
+            taskTable.frame = CGRectMake(0, 94, self.view.frame.width, self.view.frame.height - 64)
         }
     }
     override func viewDidLayoutSubviews() {
         if numOfTask <= 6 {
-            taskTable.frame = CGRectMake(0, 64, self.view.frame.width, 83 * CGFloat(numOfTask))
+            taskTable.frame = CGRectMake(0, 94, self.view.frame.width, 83 * CGFloat(numOfTask))
         }else {
-            taskTable.frame = CGRectMake(0, 64, self.view.frame.width, self.view.frame.height - 64)
+            taskTable.frame = CGRectMake(0, 94, self.view.frame.width, self.view.frame.height - 64)
         }
     }
     override func viewDidAppear(animated: Bool) {

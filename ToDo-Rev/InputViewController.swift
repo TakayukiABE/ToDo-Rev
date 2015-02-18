@@ -156,7 +156,11 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func didTapSaveButton(sender: AnyObject) {
         
         if edit {
+            selectedYear = editingTask.firstComp + year
+            selectedMonth = editingTask.secondComp + 1
+            selectedDate = editingTask.thirdComp + 1
             editDelegate?.deleteOldTask()
+            
         }
         
         if name.text != "" {
