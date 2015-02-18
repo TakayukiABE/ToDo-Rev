@@ -100,6 +100,14 @@ class TaskTableModel: NSObject {
             println("\((i as TaskObject).completion)")
             realm.commitWriteTransaction()
         }
-        
+    }
+    
+    func getTask(row:Int) -> TaskObject {
+        for i in TaskObject.allObjects() {
+            if (i as TaskObject).number == row {
+                return (i as TaskObject)
+            }
+        }
+        return TaskObject()
     }
 }

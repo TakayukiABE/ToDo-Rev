@@ -53,6 +53,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="EWS-6c-npx" kind="push" identifier="modifySegue" trigger="accessoryAction" id="ztO-rr-Fyb"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -161,4 +164,7 @@
             <point key="canvasLocation" x="897" y="392"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ztO-rr-Fyb"/>
+    </inferredMetricsTieBreakers>
 </document>

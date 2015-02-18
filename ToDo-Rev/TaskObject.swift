@@ -19,5 +19,7 @@ class TaskObject: RLMObject {
     dynamic var number:Int = 0
     dynamic var category:String = ""
     dynamic var completion:Bool = false
-    
+    dynamic var firstComp:Int = 0
+    dynamic var secondComp:Int = 0
+    dynamic var thirdComp:Int = 0
 }

@@ -9,13 +9,14 @@
 import UIKit
 
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GetRowDelegate {
     @IBOutlet weak var taskTable: UITableView!
     
     var numOfTask = 0
     var taskModel = TaskTableModel()
     var taskName = String()
     var sorting = 0
+    var currentRow = 0
     override func viewDidLoad() {
         
 //        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
@@ -29,7 +30,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         println("number of tasks = \(numOfTask)")
         
         taskTable.alpha = 0.9
-        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -119,10 +119,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         taskModel.complete(indexPath.row)
         println("tap on \(indexPath.row)")
-        
         taskTable.reloadData()
     }
     
+    
+    func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        currentRow = indexPath.row
+        println("accessory")
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "modifySegue" {
+            var inputViewController:InputViewController = segue.destinationViewController as InputViewController
+            inputViewController.edit = true
+            inputViewController.getRowDelegate = self
+        }
+    }
     
     @IBAction func didChangeSegment(sender: UISegmentedControl) {
             
@@ -132,6 +144,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             default: println("Error")
             }
         taskTable.reloadData()
+    }
+    
+    func getTask() -> TaskObject {
+        var task = taskModel.getTask(currentRow)
+        return task
     }
 
 }

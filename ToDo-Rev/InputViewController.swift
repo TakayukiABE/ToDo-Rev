@@ -16,6 +16,10 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var detail: UITextView!
     @IBOutlet weak var picker: UIPickerView!
 
+    var getRowDelegate:GetRowDelegate?
+    var editingTask:TaskObject!
+    var edit = false
+    var row = 0
     var input = InputModel()
     var selectedYear = 0
     var selectedMonth = 0
@@ -44,16 +48,35 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         detail.layer.cornerRadius = 0
         name.delegate = self
         detail.delegate = self
+        
+        if edit {
+            editingTask = getRowDelegate!.getTask()
+            
+            self.title = "Edit Task"
+            self.name.text = editingTask.name
+            self.detail.text = editingTask.detail
+        }
+        
     }
     
     override func viewDidAppear(animated: Bool) {
-        picker.selectRow(month-1, inComponent: 1, animated: true)
-        println("selectedMonth = \(selectedMonth)")
-        picker.selectRow(1, inComponent: 3, animated: true)
-        println("selectedDate = \(selectedDate)")
-        println(date)
-        picker.selectRow(date-1, inComponent: 2, animated: true)
+        if edit {
+            picker.selectRow(editingTask.firstComp, inComponent: 0, animated: true)
+            picker.selectRow(editingTask.secondComp, inComponent: 1, animated: true)
+            picker.selectRow(editingTask.thirdComp, inComponent: 2, animated: true)
+            picker.selectRow(editingTask.priority - 1, inComponent: 3, animated: true)
+        }else {
+            picker.selectRow(month-1, inComponent: 1, animated: true)
+            println("selectedMonth = \(selectedMonth)")
+            picker.selectRow(1, inComponent: 3, animated: true)
+            println("selectedDate = \(selectedDate)")
+            println(date)
+            picker.selectRow(date-1, inComponent: 2, animated: true)
+        }
     }
+    
+
+    
     
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -139,6 +162,9 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             task.priority = picker.selectedRowInComponent(3) + 1
             task.date = "\(selectedYear)\(selectedMonth)\(selectedDate)".toInt()!
             task.displayDate = "\(selectedYear)/\(selectedMonth)/\(selectedDate)(\(input.getDay(selectedYear, month: selectedMonth, date: selectedDate)))"
+            task.firstComp = picker.selectedRowInComponent(0)
+            task.secondComp = picker.selectedRowInComponent(1)
+            task.thirdComp = picker.selectedRowInComponent(2)
             realm.beginWriteTransaction()
             realm.addObject(task)
             realm.commitWriteTransaction()
@@ -165,4 +191,12 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         self.name.resignFirstResponder()
         self.detail.resignFirstResponder()
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        edit = false
+    }
+}
+
+protocol GetRowDelegate {
+    func getTask() -> TaskObject
 }
