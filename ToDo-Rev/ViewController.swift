@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GetRowDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, EditDelegate {
     @IBOutlet weak var taskTable: UITableView!
     
     var numOfTask = 0
@@ -132,9 +132,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if segue.identifier == "modifySegue" {
             var inputViewController:InputViewController = segue.destinationViewController as InputViewController
             inputViewController.edit = true
-            inputViewController.getRowDelegate = self
+            inputViewController.editDelegate = self
         }
     }
+    
     
     @IBAction func didChangeSegment(sender: UISegmentedControl) {
             
@@ -150,6 +151,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var task = taskModel.getTask(currentRow)
         return task
     }
-
+    func deleteOldTask() -> Void {
+        taskModel.deleteTask(currentRow)
+    }
 }
 

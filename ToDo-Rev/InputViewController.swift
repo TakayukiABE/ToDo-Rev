@@ -16,7 +16,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var detail: UITextView!
     @IBOutlet weak var picker: UIPickerView!
 
-    var getRowDelegate:GetRowDelegate?
+    var editDelegate:EditDelegate?
     var editingTask:TaskObject!
     var edit = false
     var row = 0
@@ -50,7 +50,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         detail.delegate = self
         
         if edit {
-            editingTask = getRowDelegate!.getTask()
+            editingTask = editDelegate!.getTask()
             
             self.title = "Edit Task"
             self.name.text = editingTask.name
@@ -155,6 +155,10 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 
     @IBAction func didTapSaveButton(sender: AnyObject) {
         
+        if edit {
+            editDelegate?.deleteOldTask()
+        }
+        
         if name.text != "" {
             let task = TaskObject()
             task.name = name.text
@@ -171,6 +175,8 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             for taskName in TaskObject.allObjects() {
                 println("\((taskName as TaskObject).name)")
             }
+            
+            println("save complete.")
             
             name.text = ""
             detail.text = ""
@@ -197,6 +203,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
 }
 
-protocol GetRowDelegate {
+protocol EditDelegate {
     func getTask() -> TaskObject
+    func deleteOldTask() -> Void
 }
