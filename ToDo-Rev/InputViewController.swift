@@ -49,9 +49,12 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         name.delegate = self
         detail.delegate = self
         
+        
         if edit {
             editingTask = editDelegate!.getTask()
-            
+            selectedYear = editingTask.firstComp + year
+            selectedMonth = editingTask.secondComp + 1
+            selectedDate = editingTask.thirdComp + 1
             self.title = "Edit Task"
             self.name.text = editingTask.name
             self.detail.text = editingTask.detail
@@ -156,9 +159,6 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func didTapSaveButton(sender: AnyObject) {
         
         if edit {
-            selectedYear = editingTask.firstComp + year
-            selectedMonth = editingTask.secondComp + 1
-            selectedDate = editingTask.thirdComp + 1
             editDelegate?.deleteOldTask()
             
         }

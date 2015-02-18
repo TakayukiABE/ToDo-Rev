@@ -83,7 +83,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 documentAttributes: nil,
                 error: nil)
             name.font = UIFont(name: "Helvetica Neue", size: 20)
-            date.attributedText = NSAttributedString(data: "<s>\(tasks[indexPath.row].displayDate)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s>".dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+            date.attributedText = NSAttributedString(data: "<s>\(tasks[indexPath.row].displayDate)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s>".dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
                 documentAttributes: nil,
                 error: nil)
             date.font = UIFont(name: "System", size: 17)
