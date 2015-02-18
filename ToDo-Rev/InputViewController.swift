@@ -180,7 +180,10 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             
             name.text = ""
             detail.text = ""
+            
+            self.navigationController?.popViewControllerAnimated(true)
         }
+        
     }
     
     func textFieldShouldReturn(textField:UITextField) {

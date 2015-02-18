@@ -42,11 +42,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        cell.accessoryType = UITableViewCellAccessoryType.None
         cell.backgroundColor = UIColor.whiteColor()
         cell.alpha = 1
-        
         var date = cell.viewWithTag(1) as UILabel
         var name = cell.viewWithTag(2) as UILabel
         var detail = cell.viewWithTag(3) as UILabel
         var priority = cell.viewWithTag(4) as UILabel
+        detail.textColor = UIColor.blackColor()
         detail.sizeToFit()
         detail.numberOfLines = 0
         detail.lineBreakMode = NSLineBreakMode.ByWordWrapping
@@ -63,15 +63,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         println("row:\(indexPath.row) priority:\(tasks[indexPath.row].priority)")
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         println(tasks[indexPath.row].completion)
+        switch tasks[indexPath.row].priority {
+        case 1: priority.text = "★"
+        case 2: priority.text = "★★"
+        case 3: priority.text = "★★★"
+        default: println("error at priority")
+        }
+        
         if tasks[indexPath.row].completion == true {
 //            cell.backgroundColor = UIColor(red: 0.2, green: 0.3, blue: 0.7, alpha: 0.4)
            //         cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-        }
-        switch tasks[indexPath.row].priority {
-        case 1: priority.text = "☆"
-        case 2: priority.text = "☆☆"
-        case 3: priority.text = "☆☆☆"
-        default: println("error at priority")
+            name.attributedText = NSAttributedString(data: "<s>\(tasks[indexPath.row].name)&nbsp;&nbsp;&nbsp;&nbsp;</s>".dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+                documentAttributes: nil,
+                error: nil)
+            name.font = UIFont(name: "Helvetica Neue", size: 20)
+            date.attributedText = NSAttributedString(data: "<s>\(tasks[indexPath.row].displayDate)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s>".dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+                documentAttributes: nil,
+                error: nil)
+            date.font = UIFont(name: "System", size: 17)
+            switch tasks[indexPath.row].priority {
+            case 1: priority.text = "☆"
+            case 2: priority.text = "☆☆"
+            case 3: priority.text = "☆☆☆"
+            default: println("error at priority")
+            }
+            detail.textColor = UIColor.grayColor()
         }
         return cell
     }

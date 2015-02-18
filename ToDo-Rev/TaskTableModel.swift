@@ -26,6 +26,9 @@ class TaskTableModel: NSObject {
             task.append(k as TaskObject)
         }
         task.sort({
+            $0.priority > $1.priority
+        })
+        task.sort({
             $0.date < $1.date
         })
         var l = 0
