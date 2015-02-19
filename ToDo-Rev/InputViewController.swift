@@ -168,7 +168,11 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             task.name = name.text
             task.detail = detail.text
             task.priority = picker.selectedRowInComponent(3) + 1
-            task.date = "\(selectedYear)\(selectedMonth)\(selectedDate)".toInt()!
+            var selectedMonth2dig = NSString(format: "%02d",selectedMonth)
+            var selectedDate2dig = NSString(format: "%02d", selectedDate)
+            
+            
+            task.date = "\(selectedYear)\(selectedMonth2dig)\(selectedDate2dig)".toInt()!
             task.displayDate = "\(selectedYear)/\(selectedMonth)/\(selectedDate)(\(input.getDay(selectedYear, month: selectedMonth, date: selectedDate)))"
             task.firstComp = picker.selectedRowInComponent(0)
             task.secondComp = picker.selectedRowInComponent(1)

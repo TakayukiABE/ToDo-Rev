@@ -118,14 +118,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if num <= 6 {
             taskTable.frame = CGRectMake(0, 94, self.view.frame.width, 83 * CGFloat(num))
         }else {
-            taskTable.frame = CGRectMake(0, 94, self.view.frame.width, self.view.frame.height - 64)
+            taskTable.frame = CGRectMake(0, 94, self.view.frame.width, self.view.frame.height - 94)
         }
     }
     override func viewDidLayoutSubviews() {
         if numOfTask <= 6 {
             taskTable.frame = CGRectMake(0, 94, self.view.frame.width, 83 * CGFloat(numOfTask))
         }else {
-            taskTable.frame = CGRectMake(0, 94, self.view.frame.width, self.view.frame.height - 64)
+            taskTable.frame = CGRectMake(0, 94, self.view.frame.width, self.view.frame.height - 94)
         }
     }
     override func viewDidAppear(animated: Bool) {
