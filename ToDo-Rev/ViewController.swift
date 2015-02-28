@@ -19,9 +19,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var taskName = String()
     var sorting = 0
     var currentRow = 0
+    var today = 0
     override func viewDidLoad() {
-        
-//        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
         
         super.viewDidLoad()
@@ -30,19 +29,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.view.backgroundColor = UIColor.blueColor()
         taskModel.getTaskList()
         println("number of tasks = \(numOfTask)")
-        todayLabel.text = taskModel.getToday()
-        todayLabel.backgroundColor = UIColor.whiteColor()
+        todayLabel.text = taskModel.getTodayForDisplay()
+        todayLabel.backgroundColor = UIColor(red: 0.97, green: 0.93, blue: 0.6, alpha: 0.9)
+        todayLabel.layer.borderWidth = 0.3
         taskTable.alpha = 0.9
+        today = taskModel.getToday()
+        
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-   //     update(num)
         numOfTask = taskModel.getNumberOfTasks()
         return numOfTask
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
-//        cell.accessoryType = UITableViewCellAccessoryType.None
         cell.backgroundColor = UIColor.whiteColor()
         cell.alpha = 1
         var date = cell.viewWithTag(1) as UILabel
@@ -77,8 +78,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         if tasks[indexPath.row].completion == true {
-//            cell.backgroundColor = UIColor(red: 0.2, green: 0.3, blue: 0.7, alpha: 0.4)
-           //         cell.accessoryType = UITableViewCellAccessoryType.Checkmark
             name.attributedText = NSAttributedString(data: "<s>\(tasks[indexPath.row].name)&nbsp;&nbsp;&nbsp;&nbsp;</s>".dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
                 documentAttributes: nil,
                 error: nil)
@@ -98,6 +97,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             date.textColor = UIColor.grayColor()
             priority.textColor = UIColor.grayColor()
         }
+        
+        
+        if today > tasks[indexPath.row].date && tasks[indexPath.row].completion == false {
+            cell.backgroundColor = UIColor(red: 1.0, green: 0.5, blue: 0.5, alpha: 1.0)
+        }else if today == tasks[indexPath.row].date && tasks[indexPath.row].completion == false {
+            cell.backgroundColor = UIColor(red: 0.97, green: 0.93, blue: 0.6, alpha: 1.0)
+        }else if tasks[indexPath.row].date - today == 1 {
+            cell.backgroundColor = UIColor(red: 0.85, green: 1.0, blue: 0.85, alpha: 1.0)
+        }else {
+            var delta:CGFloat = (1.0 - CGFloat(tasks[indexPath.row].date - today)*0.001)
+            if delta > 0.6 {
+                cell.backgroundColor = UIColor(red: delta, green: delta, blue: delta, alpha: 1.0)
+            }else {
+                cell.backgroundColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0)
+            }
+        }
+        
+        
         return cell
     }
     
@@ -115,14 +132,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func update(num: Int) {
-        if num <= 6 {
+        if num < 6 {
             taskTable.frame = CGRectMake(0, 94, self.view.frame.width, 83 * CGFloat(num))
         }else {
             taskTable.frame = CGRectMake(0, 94, self.view.frame.width, self.view.frame.height - 94)
         }
     }
     override func viewDidLayoutSubviews() {
-        if numOfTask <= 6 {
+        if numOfTask < 6 {
             taskTable.frame = CGRectMake(0, 94, self.view.frame.width, 83 * CGFloat(numOfTask))
         }else {
             taskTable.frame = CGRectMake(0, 94, self.view.frame.width, self.view.frame.height - 94)

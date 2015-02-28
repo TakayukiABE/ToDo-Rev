@@ -15,7 +15,7 @@ class TaskTableModel: NSObject {
     var tasks:[TaskObject] = [TaskObject]()
     var num = 0
     
-    func getToday() -> String {
+    func getTodayForDisplay() -> String {
         var comp = NSDateComponents()
         var cal = NSCalendar.currentCalendar()
         var today = NSDate()
@@ -23,15 +23,25 @@ class TaskTableModel: NSObject {
         comp = cal.components((NSCalendarUnit.CalendarUnitWeekday|NSCalendarUnit.CalendarUnitDay|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitYear|NSCalendarUnit.CalendarUnitHour|NSCalendarUnit.CalendarUnitMinute), fromDate: today)
         switch comp.weekday {
         case 1: day = "日"
-        case 2: day =  "月"
-        case 3: day =  "火"
-        case 4: day =  "水"
-        case 5: day =  "木"
+        case 2: day = "月"
+        case 3: day = "火"
+        case 4: day = "水"
+        case 5: day = "木"
         case 6: day = "金"
-        case 7: day =  "土"
-        default: day =  "error"
+        case 7: day = "土"
+        default: day = "error"
         }
         return "今日：\(comp.year)/\(comp.month)/\(comp.day)(\(day))"
+    }
+    
+    func getToday() -> Int {
+        var comp = NSDateComponents()
+        var cal = NSCalendar.currentCalendar()
+        var today = NSDate()
+        comp = cal.components((NSCalendarUnit.CalendarUnitDay|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitYear), fromDate: today)
+        let month2dig = NSString(format: "%02d", comp.month)
+        let date2dig = NSString(format: "%02d", comp.day)
+        return "\(comp.year)\(month2dig)\(date2dig)".toInt()!
     }
     
     func getTaskList() {
