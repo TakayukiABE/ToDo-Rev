@@ -9,8 +9,9 @@
 import UIKit
 import NYXImagesKit
 
-class SettingsViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class SettingsViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITableViewDelegate {
 
+    @IBOutlet weak var settingsTableView: UITableView!
     let controller = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -49,14 +50,7 @@ class SettingsViewController: UIViewController,UIImagePickerControllerDelegate,U
         UIGraphicsEndImageContext()
         return resizeImage
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
+    
 }

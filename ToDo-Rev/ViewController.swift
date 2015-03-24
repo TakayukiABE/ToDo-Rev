@@ -33,9 +33,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.view.backgroundColor = UIColor.blueColor()
         taskModel.getTaskList()
         println("number of tasks = \(numOfTask)")
-        taskTable.alpha = 0.7
+        taskTable.alpha = 1.0
         today = taskModel.getToday()
+        
     }
+    
     
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -166,6 +168,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             taskTable.frame = CGRectMake(0, 94, self.view.frame.width, self.view.frame.height - 94)
 //        }
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        if let alpha = NSUserDefaults.standardUserDefaults().objectForKey("alpha") as? CGFloat {
+            taskTable.alpha = (alpha)
+        }
+    }
+    
     override func viewDidAppear(animated: Bool) {
         taskTable.reloadData()
         if let imageData:NSData = NSUserDefaults.standardUserDefaults().objectForKey("background") as? NSData {
@@ -173,7 +182,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             
             self.view.backgroundColor = UIColor(patternImage: image!)
-
         }
 
     }
