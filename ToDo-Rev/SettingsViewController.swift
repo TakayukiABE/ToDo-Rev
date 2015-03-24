@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NYXImagesKit
 
 class SettingsViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
@@ -30,10 +31,10 @@ class SettingsViewController: UIViewController,UIImagePickerControllerDelegate,U
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         if info[UIImagePickerControllerOriginalImage] != nil {
             let image = info[UIImagePickerControllerOriginalImage] as UIImage
-            let resizedImage = resizeImage(image)
+           // let resizedImage = resizeImage(image)
+            let rImage = image.scaleToFitSize(CGSizeMake(320, 568))
             
-            
-            let imageData:NSData = UIImagePNGRepresentation(resizedImage)
+            let imageData:NSData = UIImagePNGRepresentation(rImage)
             
             NSUserDefaults.standardUserDefaults().setObject(imageData, forKey: "background")
         }

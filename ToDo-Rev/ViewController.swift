@@ -9,6 +9,9 @@
 import UIKit
 
 
+import NYXImagesKit
+
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, EditDelegate {
     @IBOutlet weak var taskTable: UITableView!
     
@@ -32,8 +35,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         println("number of tasks = \(numOfTask)")
         taskTable.alpha = 0.7
         today = taskModel.getToday()
-        navigationController?.navigationBar.tag = 1
-        navigationController?.navigationBar.userInteractionEnabled = true
     }
     
     
@@ -45,8 +46,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             todayLabel.text = taskModel.getTodayForDisplay()
             today = taskModel.getToday()
             taskTable.reloadData()
-        case 1:
-            println("aaaaaaaa")
         default:
             break
         }
@@ -171,7 +170,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         taskTable.reloadData()
         if let imageData:NSData = NSUserDefaults.standardUserDefaults().objectForKey("background") as? NSData {
             let image = UIImage(data: imageData)
+            
+            
             self.view.backgroundColor = UIColor(patternImage: image!)
+
         }
 
     }
