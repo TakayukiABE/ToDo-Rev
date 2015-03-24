@@ -32,10 +32,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         todayLabel.text = taskModel.getTodayForDisplay()
         todayLabel.backgroundColor = UIColor(red: 0.97, green: 0.93, blue: 0.6, alpha: 0.9)
         todayLabel.layer.borderWidth = 0.3
+        todayLabel.userInteractionEnabled = true
         taskTable.alpha = 0.9
         today = taskModel.getToday()
-        
-        
+
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        todayLabel.text = taskModel.getTodayForDisplay()
+        taskTable.reloadData()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -139,11 +144,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     override func viewDidLayoutSubviews() {
-        if numOfTask < 6 {
-            taskTable.frame = CGRectMake(0, 94, self.view.frame.width, 83 * CGFloat(numOfTask))
-        }else {
+//        if numOfTask < 6 {
+//            taskTable.frame = CGRectMake(0, 94, self.view.frame.width, 83 * CGFloat(numOfTask))
+//        }else {
             taskTable.frame = CGRectMake(0, 94, self.view.frame.width, self.view.frame.height - 94)
-        }
+//        }
     }
     override func viewDidAppear(animated: Bool) {
         taskTable.reloadData()
@@ -153,7 +158,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if(editingStyle == UITableViewCellEditingStyle.Delete){
             taskModel.deleteTask(indexPath.row)
             numOfTask--
-            update(numOfTask)
+          //  update(numOfTask)
             taskTable.reloadData()
         }
     }
