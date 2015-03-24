@@ -24,25 +24,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
         
         super.viewDidLoad()
+        initLabel()
         taskTable.delegate = self
         taskTable.dataSource = self
         self.view.backgroundColor = UIColor.blueColor()
         taskModel.getTaskList()
         println("number of tasks = \(numOfTask)")
+        taskTable.alpha = 0.7
+        today = taskModel.getToday()
+        navigationController?.navigationBar.tag = 1
+        navigationController?.navigationBar.userInteractionEnabled = true
+    }
+    
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        let touch:UITouch = event.allTouches()?.anyObject()! as UITouch
+        println(touch.view.tag)
+        switch(touch.view.tag){
+        case 0:
+            todayLabel.text = taskModel.getTodayForDisplay()
+            today = taskModel.getToday()
+            taskTable.reloadData()
+        case 1:
+            println("aaaaaaaa")
+        default:
+            break
+        }
+    }
+    
+    func initLabel() {
         todayLabel.text = taskModel.getTodayForDisplay()
         todayLabel.backgroundColor = UIColor(red: 0.97, green: 0.93, blue: 0.6, alpha: 0.9)
         todayLabel.layer.borderWidth = 0.3
+        todayLabel.tag = 0
         todayLabel.userInteractionEnabled = true
-        taskTable.alpha = 0.9
-        today = taskModel.getToday()
-
     }
-    
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        todayLabel.text = taskModel.getTodayForDisplay()
-        taskTable.reloadData()
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         numOfTask = taskModel.getNumberOfTasks()
         return numOfTask
@@ -116,6 +132,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 cell.backgroundColor = UIColor(red: delta, green: delta, blue: delta, alpha: 1.0)
             }else {
                 cell.backgroundColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0)
+                cell.backgroundColor = UIColor.clearColor()
             }
         }
         
@@ -152,6 +169,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     override func viewDidAppear(animated: Bool) {
         taskTable.reloadData()
+        if let imageData:NSData = NSUserDefaults.standardUserDefaults().objectForKey("background") as? NSData {
+            let image = UIImage(data: imageData)
+            self.view.backgroundColor = UIColor(patternImage: image!)
+        }
+
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
