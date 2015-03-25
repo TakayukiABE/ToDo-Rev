@@ -133,7 +133,6 @@ class TaskTableModel: NSObject {
     func complete(row:Int) {
         var compl = TaskObject.objectsWithPredicate(NSPredicate(format: "number = %d", row))
         for i in compl {
-            // book name:realm tutorial 1
             realm.beginWriteTransaction()
             if (i as TaskObject).completion == false {
                 (i as TaskObject).completion = true
@@ -153,4 +152,20 @@ class TaskTableModel: NSObject {
         }
         return TaskObject()
     }
+    
+    func hasDetailText(row:Int) -> Bool {
+        var hasDetail:Bool = true
+        var compl = TaskObject.objectsWithPredicate(NSPredicate(format: "number = %d", row))
+        for i in compl {
+            realm.beginWriteTransaction()
+            if (i as TaskObject).detail == "" {
+                hasDetail = false
+            }else {
+                hasDetail = true
+            }
+            realm.commitWriteTransaction()
+        }
+        return hasDetail
+    }
+    
 }

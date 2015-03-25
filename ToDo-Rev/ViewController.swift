@@ -145,9 +145,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        return 44
 //    }
 //    
-//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return 44
-//    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let hasDetailText = taskModel.hasDetailText(indexPath.row)
+        if hasDetailText {
+            return 78
+        }else {
+            return 55
+        }
+    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -190,7 +195,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if(editingStyle == UITableViewCellEditingStyle.Delete){
             taskModel.deleteTask(indexPath.row)
             numOfTask--
-          //  update(numOfTask)
+//            update(numOfTask)
             taskTable.reloadData()
         }
     }
