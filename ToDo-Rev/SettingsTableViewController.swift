@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Realm
 
 class SettingsTableViewController: UITableViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
@@ -14,6 +15,7 @@ class SettingsTableViewController: UITableViewController,UIImagePickerController
     @IBOutlet weak var alphaLabel: UILabel!
     
     let controller = UIImagePickerController()
+    let realm = RLMRealm.defaultRealm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,27 +87,66 @@ class SettingsTableViewController: UITableViewController,UIImagePickerController
         return resizeImage
     }
     
-    
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch (section) {
-        case 0:
-            return "Alpha"
-        case 1:
-            return "Height"
-        default:
-            return ""
-        }
-    }
-    
-    
-
     @IBAction func didChangeValueForAlphaSlider(sender: UISlider) {
         let alpha = Int(sender.value)
         NSUserDefaults.standardUserDefaults().setObject(( Double(alpha) / 10.0), forKey: "alpha")
         alphaLabel.text = "\( Double(alpha) / 10.0)"
     }
+    
+    @IBAction func didTapDeleteCompletedTasksButton(sender: UIButton) {
+        
+        let actionSheet:UIAlertController = UIAlertController(title:"完了済みタスクの全削除",
+            message: "完了済みタスクを全て削除しますか？",
+            preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        let destructiveAction:UIAlertAction = UIAlertAction(title: "Delete",
+            style: UIAlertActionStyle.Destructive,
+            handler:{
+                (action:UIAlertAction!) -> Void in
+                self.realm.beginWriteTransaction()
+                self.realm.deleteObjects(TaskObject.objectsWhere("completion = true"))
+                self.realm.commitWriteTransaction()
+        })
+        
+        let cancelAction:UIAlertAction = UIAlertAction(title: "Cancel",
+            style: UIAlertActionStyle.Cancel,
+            handler:{
+                (action:UIAlertAction!) -> Void in
+                println("Cancel")
+        })
+        
+        actionSheet.addAction(destructiveAction)
+        actionSheet.addAction(cancelAction)
+        presentViewController(actionSheet, animated: true, completion: nil)
+        
+    }
+    
 
-
+    @IBAction func didTapDeleteImageButton(sender: UIButton) {
+        let actionSheet:UIAlertController = UIAlertController(title:"背景画像の削除",
+            message: "背景画像を削除しますか？",
+            preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        let destructiveAction:UIAlertAction = UIAlertAction(title: "Delete",
+            style: UIAlertActionStyle.Destructive,
+            handler:{
+                (action:UIAlertAction!) -> Void in
+                NSUserDefaults.standardUserDefaults().removeObjectForKey("background")
+        })
+        
+        let cancelAction:UIAlertAction = UIAlertAction(title: "Cancel",
+            style: UIAlertActionStyle.Cancel,
+            handler:{
+                (action:UIAlertAction!) -> Void in
+                println("Cancel")
+        })
+        
+        actionSheet.addAction(destructiveAction)
+        actionSheet.addAction(cancelAction)
+        presentViewController(actionSheet, animated: true, completion: nil)
+        
+    }
+    
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell

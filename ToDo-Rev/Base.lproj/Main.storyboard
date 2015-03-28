@@ -60,7 +60,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="EWS-6c-npx" kind="push" identifier="modifySegue" trigger="accessoryAction" id="ztO-rr-Fyb"/>
+                                            <segue destination="xuF-az-r7b" kind="push" identifier="modifySegue" trigger="accessoryAction" id="vNZ-Pv-0e7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -101,7 +101,7 @@
                         </button>
                         <barButtonItem key="rightBarButtonItem" tag="1" systemItem="add" id="NYg-id-rgg">
                             <connections>
-                                <segue destination="EWS-6c-npx" kind="push" id="bWF-YN-oaU"/>
+                                <segue destination="xuF-az-r7b" kind="push" identifier=" " id="4L4-hY-qeD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -161,7 +161,90 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HSz-VI-E8g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1648" y="392"/>
+            <point key="canvasLocation" x="2083" y="1357"/>
+        </scene>
+        <!--New Task-->
+        <scene sceneID="hgT-lb-Bfk">
+            <objects>
+                <tableViewController id="xuF-az-r7b" customClass="InputTableViewController" customModule="ToDo_Rev" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="D9E-Re-oMP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="TASK NAME" id="ZdN-wn-GFg">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cSX-uC-Rck">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cSX-uC-Rck" id="52B-9T-AV6">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4er-ac-yoO">
+                                                    <rect key="frame" x="59" y="7" width="203" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="DETAIL" id="imb-ez-4kl">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="95" id="xIN-Gu-9gG">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xIN-Gu-9gG" id="g8H-0K-6Wa">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UFE-wi-tDI">
+                                                    <rect key="frame" x="58" y="6" width="204" height="81"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="DATE &amp; PRIORITY" id="uqh-PZ-Qsx">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="169" id="dq8-8s-xGi">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dq8-8s-xGi" id="WTh-eM-5Xf">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q7d-vr-Pcb">
+                                                    <rect key="frame" x="0.0" y="4" width="320" height="162"/>
+                                                </pickerView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="xuF-az-r7b" id="U64-Wa-484"/>
+                            <outlet property="delegate" destination="xuF-az-r7b" id="6ZH-7h-6zY"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="New Task" id="GcM-Nq-1pd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Kwz-gh-utY">
+                            <connections>
+                                <action selector="didTapDoneButton:" destination="xuF-az-r7b" id="dDU-3U-qiE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="detail" destination="UFE-wi-tDI" id="th7-80-meV"/>
+                        <outlet property="name" destination="4er-ac-yoO" id="sZV-Ts-nyA"/>
+                        <outlet property="picker" destination="Q7d-vr-Pcb" id="LGx-ri-Gfp"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GeW-WM-1Hf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1657" y="388"/>
         </scene>
         <!--Settings-->
         <scene sceneID="o4o-B8-piG">
@@ -172,7 +255,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection id="Bh8-6b-HHn">
+                            <tableViewSection headerTitle="ALPHA" id="Bh8-6b-HHn">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="82" id="Ddc-nH-eHk">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -196,12 +279,45 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="tbA-R2-NZc">
+                            <tableViewSection headerTitle="DELETE COMPLETED TASKS" id="tbA-R2-NZc">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="EHE-gV-Uku">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EHE-gV-Uku" id="FQc-Wv-d3b">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Yx-vt-dc8">
+                                                    <rect key="frame" x="8" y="7" width="304" height="30"/>
+                                                    <state key="normal" title="完了済みタスクの全削除">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didTapDeleteCompletedTasksButton:" destination="tqV-4K-kVO" eventType="touchUpInside" id="D7A-Fk-MWg"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="DELETE BACKGROUND IMAGE" id="1wi-0e-Fu4">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dR2-rG-md8">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dR2-rG-md8" id="Kmo-z9-bkv">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ckz-4O-xcO">
+                                                    <rect key="frame" x="8" y="9" width="304" height="30"/>
+                                                    <state key="normal" title="背景画像の削除">
+                                                        <color key="titleColor" red="1" green="0.26500580309999999" blue="0.13953423470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didTapDeleteImageButton:" destination="tqV-4K-kVO" eventType="touchUpInside" id="xrz-BG-YLf"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -227,7 +343,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZcH-r5-dvJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1296" y="1052"/>
+            <point key="canvasLocation" x="1657" y="1052"/>
         </scene>
         <!--Settings-->
         <scene sceneID="L19-Em-Fqq">
@@ -273,7 +389,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQo-9N-iFX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1657" y="1054"/>
+            <point key="canvasLocation" x="2040" y="1386"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kPT-wI-2kZ">
@@ -295,10 +411,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6G-XS-IHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="897" y="392"/>
+            <point key="canvasLocation" x="879" y="388"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ztO-rr-Fyb"/>
+        <segue reference="vNZ-Pv-0e7"/>
     </inferredMetricsTieBreakers>
 </document>

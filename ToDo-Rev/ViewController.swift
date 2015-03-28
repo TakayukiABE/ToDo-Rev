@@ -30,11 +30,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         initLabel()
         taskTable.delegate = self
         taskTable.dataSource = self
-        self.view.backgroundColor = UIColor.blueColor()
+        self.view.backgroundColor = UIColor.whiteColor()
         taskModel.getTaskList()
         println("number of tasks = \(numOfTask)")
         taskTable.alpha = 1.0
         today = taskModel.getToday()
+        
+//        if let imageData:NSData = NSUserDefaults.standardUserDefaults().objectForKey("background") as? NSData {
+//            let image = UIImage(data: imageData)
+//            
+//            
+//            self.view.backgroundColor = UIColor(patternImage: image!)
+//        }
         
     }
     
@@ -184,9 +191,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         taskTable.reloadData()
         if let imageData:NSData = NSUserDefaults.standardUserDefaults().objectForKey("background") as? NSData {
             let image = UIImage(data: imageData)
-            
-            
             self.view.backgroundColor = UIColor(patternImage: image!)
+        }else {
+            self.view.backgroundColor = UIColor.whiteColor()
         }
 
     }
@@ -214,7 +221,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "modifySegue" {
-            var inputViewController:InputViewController = segue.destinationViewController as InputViewController
+            var inputViewController:InputTableViewController = segue.destinationViewController as InputTableViewController
             inputViewController.edit = true
             inputViewController.editDelegate = self
         }
