@@ -1,0 +1,125 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Pods-Swift.h",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods.framework/Headers/Pods-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "Pods-umbrella.h",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Pods/Target Support Files/Pods/Pods-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "NYXImagesHelper.h",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Pods/NYXImagesKit/Helper/NYXImagesHelper.h"
+        },
+        {
+          'type': 'file',
+          'name': "NYXImagesKit-Swift.h",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/NYXImagesKit-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "NYXImagesKit.h",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Pods/NYXImagesKit/Helper/NYXImagesKit.h"
+        },
+        {
+          'type': 'file',
+          'name': "NYXProgressiveImageView.h",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Pods/NYXImagesKit/Classes/NYXProgressiveImageView.h"
+        },
+        {
+          'type': 'file',
+          'name': "Pods-NYXImagesKit-umbrella.h",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Pods/Target Support Files/Pods-NYXImagesKit/Pods-NYXImagesKit-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIImage+Blurring.h",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Pods/NYXImagesKit/Categories/UIImage+Blurring.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIImage+Enhancing.h",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Pods/NYXImagesKit/Categories/UIImage+Enhancing.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIImage+Filtering.h",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Pods/NYXImagesKit/Categories/UIImage+Filtering.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIImage+Masking.h",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Pods/NYXImagesKit/Categories/UIImage+Masking.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIImage+Reflection.h",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Pods/NYXImagesKit/Categories/UIImage+Reflection.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIImage+Resizing.h",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Pods/NYXImagesKit/Categories/UIImage+Resizing.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIImage+Rotating.h",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Pods/NYXImagesKit/Categories/UIImage+Rotating.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIImage+Saving.h",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Pods/NYXImagesKit/Categories/UIImage+Saving.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIScrollView+Screenshot.h",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Pods/NYXImagesKit/Categories/UIScrollView+Screenshot.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIView+Screenshot.h",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Pods/NYXImagesKit/Categories/UIView+Screenshot.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/hypersonicstab/Development/ToDo-Rev/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-NYXImagesKit.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,329 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "InputModel"
+provides-nominal:
+- "C8ToDo_Rev10InputModel"
+provides-member:
+- ["C8ToDo_Rev10InputModel", ""]
+provides-dynamic-lookup:
+- "getDay"
+- "getYear"
+- "getMonth"
+- "getDate"
+- "comp"
+depends-top-level:
+- "NSObject"
+- "NSCalendar"
+- "Int"
+- "String"
+- !private "println"
+- !private "UnicodeScalarType"
+- !private "~="
+- "AssignmentPrecedence"
+- "InputModel"
+- !private "NSCalendarUnit"
+- !private "StringLiteralType"
+- "NSDateComponents"
+- !private "NSDate"
+- !private "|"
+depends-member:
+- ["Ps9AnyObject", "NSCalendar"]
+- !private ["Ps9AnyObject", "NSCalendarUnit"]
+- !private ["Ps9AnyObject", "NSDate"]
+- ["Ps9AnyObject", "NSDateComponents"]
+- !private ["Ps9AnyObject", "cal"]
+- ["Ps9AnyObject", "comp"]
+- ["Ps9AnyObject", "currentCalendar"]
+- !private ["Ps9AnyObject", "day"]
+- ["Ps9AnyObject", "getDate"]
+- ["Ps9AnyObject", "getDay"]
+- ["Ps9AnyObject", "getMonth"]
+- ["Ps9AnyObject", "getYear"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "month"]
+- !private ["Ps9AnyObject", "println"]
+- !private ["Ps9AnyObject", "year"]
+- ["Ps9AnyObject", ""]
+- ["Ps7CVarArg", "NSCalendar"]
+- !private ["Ps7CVarArg", "NSCalendarUnit"]
+- !private ["Ps7CVarArg", "NSDate"]
+- ["Ps7CVarArg", "NSDateComponents"]
+- !private ["Ps7CVarArg", "cal"]
+- ["Ps7CVarArg", "comp"]
+- ["Ps7CVarArg", "currentCalendar"]
+- !private ["Ps7CVarArg", "day"]
+- ["Ps7CVarArg", "getDate"]
+- ["Ps7CVarArg", "getDay"]
+- ["Ps7CVarArg", "getMonth"]
+- ["Ps7CVarArg", "getYear"]
+- ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "month"]
+- !private ["Ps7CVarArg", "println"]
+- !private ["Ps7CVarArg", "year"]
+- ["Ps7CVarArg", ""]
+- ["V10Foundation8Calendar", "deinit"]
+- !private ["Ps10Comparable", "init"]
+- ["Ps28CustomDebugStringConvertible", "NSCalendar"]
+- !private ["Ps28CustomDebugStringConvertible", "NSCalendarUnit"]
+- !private ["Ps28CustomDebugStringConvertible", "NSDate"]
+- ["Ps28CustomDebugStringConvertible", "NSDateComponents"]
+- !private ["Ps28CustomDebugStringConvertible", "cal"]
+- ["Ps28CustomDebugStringConvertible", "comp"]
+- ["Ps28CustomDebugStringConvertible", "currentCalendar"]
+- !private ["Ps28CustomDebugStringConvertible", "day"]
+- ["Ps28CustomDebugStringConvertible", "getDate"]
+- ["Ps28CustomDebugStringConvertible", "getDay"]
+- ["Ps28CustomDebugStringConvertible", "getMonth"]
+- ["Ps28CustomDebugStringConvertible", "getYear"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "month"]
+- !private ["Ps28CustomDebugStringConvertible", "println"]
+- !private ["Ps28CustomDebugStringConvertible", "year"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "init"]
+- ["Ps23CustomStringConvertible", "NSCalendar"]
+- !private ["Ps23CustomStringConvertible", "NSCalendarUnit"]
+- !private ["Ps23CustomStringConvertible", "NSDate"]
+- ["Ps23CustomStringConvertible", "NSDateComponents"]
+- !private ["Ps23CustomStringConvertible", "cal"]
+- ["Ps23CustomStringConvertible", "comp"]
+- ["Ps23CustomStringConvertible", "currentCalendar"]
+- !private ["Ps23CustomStringConvertible", "day"]
+- ["Ps23CustomStringConvertible", "getDate"]
+- ["Ps23CustomStringConvertible", "getDay"]
+- ["Ps23CustomStringConvertible", "getMonth"]
+- ["Ps23CustomStringConvertible", "getYear"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "month"]
+- !private ["Ps23CustomStringConvertible", "println"]
+- !private ["Ps23CustomStringConvertible", "year"]
+- ["Ps23CustomStringConvertible", ""]
+- ["Ps9Equatable", "NSCalendar"]
+- !private ["Ps9Equatable", "NSCalendarUnit"]
+- !private ["Ps9Equatable", "NSDate"]
+- ["Ps9Equatable", "NSDateComponents"]
+- !private ["Ps9Equatable", "cal"]
+- ["Ps9Equatable", "comp"]
+- ["Ps9Equatable", "currentCalendar"]
+- !private ["Ps9Equatable", "day"]
+- ["Ps9Equatable", "getDate"]
+- ["Ps9Equatable", "getDay"]
+- ["Ps9Equatable", "getMonth"]
+- ["Ps9Equatable", "getYear"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "month"]
+- !private ["Ps9Equatable", "println"]
+- !private ["Ps9Equatable", "year"]
+- ["Ps9Equatable", ""]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- ["Ps8Hashable", "NSCalendar"]
+- !private ["Ps8Hashable", "NSCalendarUnit"]
+- !private ["Ps8Hashable", "NSDate"]
+- ["Ps8Hashable", "NSDateComponents"]
+- !private ["Ps8Hashable", "cal"]
+- ["Ps8Hashable", "comp"]
+- ["Ps8Hashable", "currentCalendar"]
+- !private ["Ps8Hashable", "day"]
+- ["Ps8Hashable", "getDate"]
+- ["Ps8Hashable", "getDay"]
+- ["Ps8Hashable", "getMonth"]
+- ["Ps8Hashable", "getYear"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "month"]
+- !private ["Ps8Hashable", "println"]
+- !private ["Ps8Hashable", "year"]
+- ["Ps8Hashable", ""]
+- ["C8ToDo_Rev10InputModel", "Int"]
+- ["C8ToDo_Rev10InputModel", "NSCalendar"]
+- !private ["C8ToDo_Rev10InputModel", "NSCalendarUnit"]
+- !private ["C8ToDo_Rev10InputModel", "NSDate"]
+- ["C8ToDo_Rev10InputModel", "NSDateComponents"]
+- ["C8ToDo_Rev10InputModel", "String"]
+- !private ["C8ToDo_Rev10InputModel", "cal"]
+- ["C8ToDo_Rev10InputModel", "comp"]
+- ["C8ToDo_Rev10InputModel", "deinit"]
+- ["C8ToDo_Rev10InputModel", "getDate"]
+- ["C8ToDo_Rev10InputModel", "getDay"]
+- ["C8ToDo_Rev10InputModel", "getMonth"]
+- ["C8ToDo_Rev10InputModel", "getYear"]
+- ["C8ToDo_Rev10InputModel", "init"]
+- !private ["C8ToDo_Rev10InputModel", "println"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- ["CSo10NSCalendar", "currentCalendar"]
+- ["PSo8NSCoding", "currentCalendar"]
+- !private ["PSo8NSCoding", "day"]
+- ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "month"]
+- !private ["PSo8NSCoding", "year"]
+- ["PSo9NSCopying", "currentCalendar"]
+- !private ["PSo9NSCopying", "day"]
+- ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "month"]
+- !private ["PSo9NSCopying", "year"]
+- ["CSo6NSDate", "deinit"]
+- !private ["CSo6NSDate", "init"]
+- !private ["CSo16NSDateComponents", "day"]
+- ["CSo16NSDateComponents", "deinit"]
+- ["CSo16NSDateComponents", "init"]
+- !private ["CSo16NSDateComponents", "month"]
+- !private ["CSo16NSDateComponents", "year"]
+- !private ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "Int"]
+- ["CSo8NSObject", "NSCalendar"]
+- !private ["CSo8NSObject", "NSCalendarUnit"]
+- !private ["CSo8NSObject", "NSDate"]
+- ["CSo8NSObject", "NSDateComponents"]
+- ["CSo8NSObject", "String"]
+- !private ["CSo8NSObject", "cal"]
+- ["CSo8NSObject", "comp"]
+- ["CSo8NSObject", "currentCalendar"]
+- !private ["CSo8NSObject", "day"]
+- ["CSo8NSObject", "deinit"]
+- ["CSo8NSObject", "getDate"]
+- ["CSo8NSObject", "getDay"]
+- ["CSo8NSObject", "getMonth"]
+- ["CSo8NSObject", "getYear"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "month"]
+- !private ["CSo8NSObject", "println"]
+- !private ["CSo8NSObject", "year"]
+- ["CSo8NSObject", ""]
+- ["PSo16NSObjectProtocol", "NSCalendar"]
+- !private ["PSo16NSObjectProtocol", "NSCalendarUnit"]
+- !private ["PSo16NSObjectProtocol", "NSDate"]
+- ["PSo16NSObjectProtocol", "NSDateComponents"]
+- !private ["PSo16NSObjectProtocol", "cal"]
+- ["PSo16NSObjectProtocol", "comp"]
+- ["PSo16NSObjectProtocol", "currentCalendar"]
+- !private ["PSo16NSObjectProtocol", "day"]
+- ["PSo16NSObjectProtocol", "getDate"]
+- ["PSo16NSObjectProtocol", "getDay"]
+- ["PSo16NSObjectProtocol", "getMonth"]
+- ["PSo16NSObjectProtocol", "getYear"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "month"]
+- !private ["PSo16NSObjectProtocol", "println"]
+- !private ["PSo16NSObjectProtocol", "year"]
+- ["PSo16NSObjectProtocol", ""]
+- ["PSo14NSSecureCoding", "currentCalendar"]
+- !private ["PSo14NSSecureCoding", "day"]
+- ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "month"]
+- !private ["PSo14NSSecureCoding", "year"]
+- !private ["CSo8NSString", "init"]
+- ["SS", "deinit"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "currentCalendar"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "day"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "month"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "year"]
+- ["Ps9_Hashable", "NSCalendar"]
+- !private ["Ps9_Hashable", "NSCalendarUnit"]
+- !private ["Ps9_Hashable", "NSDate"]
+- ["Ps9_Hashable", "NSDateComponents"]
+- !private ["Ps9_Hashable", "cal"]
+- ["Ps9_Hashable", "comp"]
+- ["Ps9_Hashable", "currentCalendar"]
+- !private ["Ps9_Hashable", "day"]
+- ["Ps9_Hashable", "getDate"]
+- ["Ps9_Hashable", "getDay"]
+- ["Ps9_Hashable", "getMonth"]
+- ["Ps9_Hashable", "getYear"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "month"]
+- !private ["Ps9_Hashable", "println"]
+- !private ["Ps9_Hashable", "year"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Ps7CVarArg"
+- "V10Foundation8Calendar"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps32ExpressibleByStringInterpolation"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- "C8ToDo_Rev10InputModel"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- "CSo10NSCalendar"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "CSo6NSDate"
+- "CSo16NSDateComponents"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/NYXImagesKit.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/NYXProgressiveImageView.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIView+Screenshot.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIScrollView+Screenshot.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIImage+Saving.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIImage+Rotating.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIImage+Resizing.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIImage+Reflection.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIImage+Masking.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIImage+Filtering.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIImage+Enhancing.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/NYXImagesHelper.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIImage+Blurring.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/Pods-NYXImagesKit-umbrella.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Modules/module.modulemap"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMProperty.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMObjectSchema.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMSchema.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMResults.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMRealm.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMPlatform.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMObjectBase.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMConstants.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMObject.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMMigration.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMCollection.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMArray.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/Realm.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Modules/module.modulemap"
+interface-hash: "dc5c7b6c416651f6170a147f6cc13980"

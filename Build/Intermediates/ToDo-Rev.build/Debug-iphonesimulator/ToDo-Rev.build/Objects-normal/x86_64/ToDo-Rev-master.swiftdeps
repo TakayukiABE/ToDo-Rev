@@ -1,0 +1,14 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "0bd44f295b7bbb6c88b9742ff0b78c88"
+build_time: [600613131, 800110000]
+inputs:
+  "/Users/hypersonicstab/Development/ToDo-Rev/ToDo-Rev/ViewController.swift": !dirty [480648791, 0]
+  "/Users/hypersonicstab/Development/ToDo-Rev/RLMSupport.swift": !dirty [476327506, 0]
+  "/Users/hypersonicstab/Development/ToDo-Rev/ToDo-Rev/TaskTableModel.swift": !dirty [480557724, 0]
+  "/Users/hypersonicstab/Development/ToDo-Rev/ToDo-Rev/InputModel.swift": !dirty [477497816, 0]
+  "/Users/hypersonicstab/Development/ToDo-Rev/ToDo-Rev/InputTableViewController.swift": !dirty [480816026, 0]
+  "/Users/hypersonicstab/Development/ToDo-Rev/ToDo-Rev/TaskObject.swift": !dirty [477543458, 0]
+  "/Users/hypersonicstab/Development/ToDo-Rev/ToDo-Rev/AppDelegate.swift": !dirty [477318063, 0]
+  "/Users/hypersonicstab/Development/ToDo-Rev/ToDo-Rev/InputViewController.swift": !dirty [480647386, 0]
+  "/Users/hypersonicstab/Development/ToDo-Rev/ToDo-Rev/SettingsViewController.swift": !dirty [480524630, 0]
+  "/Users/hypersonicstab/Development/ToDo-Rev/ToDo-Rev/SettingsTableViewController.swift": !dirty [495892533, 0]

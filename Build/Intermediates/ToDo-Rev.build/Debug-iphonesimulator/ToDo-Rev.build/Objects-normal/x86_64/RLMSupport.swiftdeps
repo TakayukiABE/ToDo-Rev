@@ -1,0 +1,97 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+- "CSo8RLMArray"
+- "CSo10RLMResults"
+provides-member:
+- ["CSo9RLMObject", ""]
+- ["CSo8RLMArray", ""]
+- ["CSo10RLMResults", ""]
+- ["CSo9RLMObject", "objectsWhere"]
+- ["CSo9RLMObject", "objectsInRealm"]
+provides-dynamic-lookup:
+depends-top-level:
+- "CVarArgType"
+- "GeneratorOf"
+- "RLMObject"
+- "RLMResults"
+- "String"
+- "UInt"
+- "RLMRealm"
+- "RLMArray"
+- "SequenceType"
+depends-member:
+- ["CSo8NSObject", "CVarArgType"]
+- ["CSo8NSObject", "GeneratorOf"]
+- ["CSo8NSObject", "RLMRealm"]
+- ["CSo8NSObject", "RLMResults"]
+- ["CSo8NSObject", "String"]
+- ["CSo8NSObject", "UInt"]
+- ["CSo8RLMArray", "CVarArgType"]
+- ["CSo8RLMArray", "GeneratorOf"]
+- ["CSo8RLMArray", "RLMResults"]
+- ["CSo8RLMArray", "String"]
+- ["CSo8RLMArray", "UInt"]
+- ["CSo9RLMObject", "CVarArgType"]
+- ["CSo9RLMObject", "RLMRealm"]
+- ["CSo9RLMObject", "RLMResults"]
+- ["CSo9RLMObject", "String"]
+- ["CSo13RLMObjectBase", "CVarArgType"]
+- ["CSo13RLMObjectBase", "RLMRealm"]
+- ["CSo13RLMObjectBase", "RLMResults"]
+- ["CSo13RLMObjectBase", "String"]
+- ["CSo10RLMResults", "CVarArgType"]
+- ["CSo10RLMResults", "GeneratorOf"]
+- ["CSo10RLMResults", "RLMResults"]
+- ["CSo10RLMResults", "String"]
+- ["CSo10RLMResults", "UInt"]
+- ["Su", "deinit"]
+depends-nominal:
+- "CSo8NSObject"
+- "CSo8RLMArray"
+- "CSo9RLMObject"
+- "CSo13RLMObjectBase"
+- "CSo10RLMResults"
+- "Su"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/NYXImagesKit.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/NYXProgressiveImageView.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIView+Screenshot.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIScrollView+Screenshot.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIImage+Saving.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIImage+Rotating.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIImage+Resizing.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIImage+Reflection.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIImage+Masking.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIImage+Filtering.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIImage+Enhancing.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/NYXImagesHelper.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/UIImage+Blurring.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Headers/Pods-NYXImagesKit-umbrella.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Build/Products/Debug-iphonesimulator/Pods/NYXImagesKit.framework/Modules/module.modulemap"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMProperty.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMObjectSchema.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMSchema.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMResults.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMRealm.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMPlatform.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMObjectBase.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMConstants.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMObject.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMMigration.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMCollection.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/RLMArray.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Headers/Realm.h"
+- "/Users/hypersonicstab/Development/ToDo-Rev/Realm.framework/Modules/module.modulemap"
+interface-hash: "945dfec551bdbd402fd72b6d7aefb43c"
